@@ -1,3 +1,20 @@
-<h1> Home Index </h1>
-<p> home/index.html.erb </p>
- <%= button_to "log out", destroy_user_session_path, method: :delete, class: "btn btn-danger"%>
+<h1> Welcome to the comp </h1>
+<%= link_to 'New post', new_post_path %>
+<h2> Users List</h2>
+ <%#= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light" %>
+<div class="container">
+    <table>
+      <tr>
+        <th>Email</th>
+        <th>First_Name</th>
+      </tr> 
+      <% @users.each do |user| %>
+          <tr>
+              <td><%= user.email %> </td>
+              <td><%= user.first_name%></td>
+          </tr>
+ <% end %>  
+    </table>
+</div>
+
+ 

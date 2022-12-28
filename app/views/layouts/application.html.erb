@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>  <%# this loads Sprockets/Rails asset pipeline %>
     <%= javascript_importmap_tags %>
   </head>
 
@@ -14,6 +14,8 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
-    <%= render partial: "devise/shared/footer" %>
+    <%#= render partial: "devise/shared/footer" %>
+  </br>
+   <%= render partial: "devise/shared/navbar" %>
   </body>
 </html>
