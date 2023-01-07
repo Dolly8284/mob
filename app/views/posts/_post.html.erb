@@ -1,34 +1,7 @@
 <div id="<%= dom_id post %>">
- <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @post.text %>
-</p>
- 
- <p>
-  <strong> Avatar:</strong>
-  <% if @post.avatar.attached? %>
-    <%= image_tag @post.avatar, width: "100px"%>
-  <% end %>
-</p>
-
-<h2>Add a comment:</h2>
-<%= form_for([@post, @post.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br />
-    <%= f.text_field :commenter %>
-  </p>
-
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
- 
-<%= link_to 'Edit Post', edit_post_path(@post) %> |
-<%= link_to 'Back to Posts', posts_path %>
-
-</div>
+  <h2><%= post.title %></h2>
+  <h5>Posted-By-<%= post.user.email %></h5>
+  <h6><%= pluralize(post.views, "view") %></h6>
+  <div>
+    <%= post.text %>
+  </div>

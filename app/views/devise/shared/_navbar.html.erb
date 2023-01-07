@@ -1,6 +1,9 @@
-<nav class="navbar navbar-light" style="background-color: #fff;">  
+ <nav class="navbar navbar-light" style="background-color: #fff;">  
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">CUBE_WORKS</a> 
+    <a class="navbar-brand" href="#">DEMO_WORKS</a> 
+    <li class="nav-item">
+      <%= link_to "Home", root_path, class:'nav-link'%>
+     </li>
     <div class="logout">
       <% if current_user %> 
         <%= button_to "log out", destroy_user_session_path, method: :delete, class: "btn btn-danger"%>
