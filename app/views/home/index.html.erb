@@ -1,16 +1,19 @@
 <h1> Welcome to the comp </h1>
-<%= link_to 'New post', new_post_path %>
+<%= link_to 'New post', new_post_path ,lass:"btn btn-secondary"%>
+<%#= link_to "Blog", posts_path, class:"btn btn-primary" %>
 <h2> Users List</h2>
 <div class="container">
     <table>
       <tr>
         <th>Email</th>
         <th>First_Name</th>
+        <th>Date</th>
       </tr> 
       <% @users.each do |user| %>
           <tr>
               <td><%= user.email %> </td>
               <td><%= user.first_name%></td>
+              <td><%= user.created_at.strftime("%d/%H/%Y")%>
           </tr>
  <% end %>  
     </table>

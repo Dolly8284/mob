@@ -1,17 +1,22 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%#= notice %></p> -->
 
 <h1>Posts</h1>
 
 <%= link_to 'New Post', new_post_path, class: 'btn btn-primary' %>
 <hr>
-<% @post.each do |post| %>
+<% @post.each do |post|  %>
+
   <div class="card">
     <div class="card-body">
-      <p class="card-id"><%= link_to post.id %></p>
-      <h5>Posted-By-<%= post.user.email %></h5>
+      <p class="card-id"><%= post.id %></p>
+      <h4>Posted-By-<%= post.user.email %></h4>
+
       <h6><%= pluralize(post.views,"views") %></h6>
-      <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5> 
+
+      <h5 class="card-title"><%= link_to post.title, post_path(post) %></h5>
+
       <p class="card-text"><%= truncate(post.text, length: 60) %></p>
+
       <p class="card-date"><%= link_to post.created_at.strftime("%d/%H/%Y")%> | 
       
       <%= link_to 'Edit', edit_post_path(post), class: 'card-link' %> |

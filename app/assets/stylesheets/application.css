@@ -45,6 +45,10 @@
     color: ##f2f2f2;
   }
 
+  .logout {
+   float: right;
+  }
+
   .container {
     padding: 18px;
     margin-top: 35px;

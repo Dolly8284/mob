@@ -1,25 +1,33 @@
- <%= form_with(model: post, local: true) do |form| %>
+<%= form_with(model: post) do |form| %>
   <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h4 class="text-danger"><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h4>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul class="list-group">
-        <% post.errors.full_messages.each do |message| %>
-          <li class="list-group-item list-group-item-danger"><%= message %></li>
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
         <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label :title %>
-    <%= form.text_field :title, class: 'form-control' %>
+  <div>
+    <%= form.label :title, style: "display: block" %>
+    <%= form.text_field :title %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :text %>
-    <%= form.text_area :text, class: 'form-control' %>
+  <div>
+    <%= form.label :text, style: "display: block" %>
+    <%= form.text_area :text %>
+  </div>
+  
+  <div>
+   <%= form.label :Profile_Photo, style: "display: block" %> 
+   <%= form.file_field :avatar %><br/>
   </div>
 
-  <%= form.submit "Save Post", class: 'btn btn-primary' %>
+  <div>
+    <%= form.submit %>
+  </div>
 <% end %>
+

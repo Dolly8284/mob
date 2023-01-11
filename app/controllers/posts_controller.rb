@@ -1,13 +1,17 @@
 class PostsController < ApplicationController
   
   def index
-    @post = Post.all
+   @post = Post.all.order(created_at: :desc)
   end
 
   def new
     @post = Post.new
   end
- 
+    
+  # def top
+  #   @posts = Post.all.order("post.views DESC").page(params[:page]).per(2)
+  # end
+
   def create
      @post = current_user.posts.new(post_params)
     if @post.save
@@ -20,6 +24,8 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @post.update(views: @post.views + 1)
+    @comments = @post.comments.order(created_at: :desc)
+
   end
 
   def edit

@@ -14,9 +14,9 @@ class User::SessionsController < Devise::SessionsController
   # end
 
   # DELETE /resource/sign_out
-  def destroy
-   redirect_to 'login' , notice: "Logout Successfully"
-  end
+  # def destroy
+  #  redirect_to 'login' , notice: "Logout Successfully"
+  # end
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
