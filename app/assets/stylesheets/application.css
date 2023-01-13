@@ -18,11 +18,13 @@
     background-color: #f1e9e9;
   }
   
-  .logoutLblPos{
-   position:fixed;
-   right:10px;
-   top:5px;
-  }
+ /*.logo-image{
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+  } */
   .navbar {
     overflow: hidden;
     background-color: #f1e9e9;
@@ -46,7 +48,9 @@
   }
 
   .logout {
-   float: right;
+   position:fixed;
+   right:10px;
+   top:5px;
   }
 
   .container {

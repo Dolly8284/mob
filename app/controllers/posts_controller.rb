@@ -1,16 +1,21 @@
 class PostsController < ApplicationController
   
   def index
-   @post = Post.all.order(created_at: :desc)
+     # @post = current_user.posts.order("RANDOM()").first(5)
+     @post = Post.all
   end
 
   def new
     @post = Post.new
   end
     
-  # def top
-  #   @posts = Post.all.order("post.views DESC").page(params[:page]).per(2)
+  # def like
+  #   @popular = Like.popular.where(liked: true)
   # end
+
+  def latetscomment
+    @latetscomment = Comment.order(id: :desc).limit(10)
+  end
 
   def create
      @post = current_user.posts.new(post_params)
@@ -34,7 +39,7 @@ class PostsController < ApplicationController
 
   def update
    @post = Post.find(params[:id])
-     if @post.update(params[:post].permit(:title, :text, :avatar, :user_id))
+     if @post.update(params[:post].permit(:title, :body, :avatar, :user_id))
       redirect_to @post
     else
     render 'edit'
@@ -50,6 +55,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :text, :avatar, :user_id)
+      # binding.pry
+      params.require(:post).permit(:title, :body, :avatar, :user_id)
     end
 end

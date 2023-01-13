@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
-  get 'page/home'
-  get 'page/about'
+  # get 'page/home'
+  # get 'page/about'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
   resources :posts do
-   resources :comments
+    resources :comments, only: [:create, :update, :destroy]
+    get'latetscomment', on: :collection
+    get 'like', on: :collection
   end
+  get 'about', to: 'pages#about'
+  
   devise_for :users
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
+  
    root to: "home#index"
 end
+
