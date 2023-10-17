@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   end
  
   def show
+    # binding.pry
     @post = Post.find(params[:id])
     @post.update(views: @post.views + 1)
     @comments = @post.comments.order(created_at: :desc)

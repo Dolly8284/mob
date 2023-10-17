@@ -15,4 +15,29 @@ ActiveAdmin.register Post do
   #   permitted
   # end
   
+  index do
+    selectable_column
+    id_column
+    column :title
+    column :body
+    column :user
+    column :created_at
+    column :views
+    actions
+  end
+
+  filter :email
+  filter :current_sign_in_at
+  filter :sign_in_count
+  filter :created_at
+
+  form do |f|
+    f.inputs do
+      f.input :title
+      f.input :body
+      f.input :user
+      f.input :views
+    end
+    f.actions
+  end
 end

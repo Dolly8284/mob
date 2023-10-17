@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   
   resources :posts do
-    resources :comments, only: [:create, :update, :destroy]
+    resources :comments, only: [:create, :update, :destroy, :new]
     get'latetscomment', on: :collection
     get 'like', on: :collection
   end

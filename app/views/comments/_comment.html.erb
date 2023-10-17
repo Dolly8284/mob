@@ -1,5 +1,4 @@
-<div class="comment-<%= comment.id %> container"
-    style="border: 1px solid black; padding: 1em; margin: 1em;">
+<div class="comment-<%= comment.id %>
   <%= comment.user.email %><br />
 
   <% if (comment.updated_at - comment.created_at) > 1 %>
@@ -27,9 +26,11 @@
        submit_label: "Update" %>
     </div>
   <% end %>
-  
+
+
   <hr />
   <div id="comment-body-<%= comment.id %>">
+  <div id="reply-form-<%= comment.id %>"></div>
     <%= comment.body %>
   </div>
 </div>

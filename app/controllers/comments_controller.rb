@@ -2,6 +2,12 @@ class CommentsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_post
 
+   def new
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.new(parent_id: params[:parent_id])
+  end
+
+
   def create
     @comment = @post.comments.create(comment_params)
     @comment.user = current_user
